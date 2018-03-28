@@ -17,6 +17,7 @@ class Chat extends React.Component {
         <div className="Chat__messages">
           {this.props.messages.map(m =>
             (<MessageBubble
+              key={m.id}
               author={m.author}
               message={m.message}
               timestamp={m.timestamp}

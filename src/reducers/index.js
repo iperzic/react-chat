@@ -6,6 +6,7 @@ const defaultState = {
   messages: [],
 };
 
+/* eslint no-underscore-dangle: 0 */
 export default (state = defaultState, action) => {
   switch (action.type) {
     case msgTypes.GET_MESSAGES:
@@ -18,7 +19,13 @@ export default (state = defaultState, action) => {
       return ({
         ...state,
         loading: false,
-        messages: action.payload.data,
+        messages: action.payload.data.map(msg => ({
+          id: msg._id,
+          author: msg.author,
+          message: msg.message,
+          timestamp: new Date(msg.timestamp).toDateString(),
+          isOwn: msg.author === 'Igor Perzic',
+        })),
       });
     case msgTypes.GET_MESSAGES_FAILURE:
       return ({
