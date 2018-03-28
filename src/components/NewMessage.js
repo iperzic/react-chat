@@ -23,13 +23,19 @@ class NewMessage extends React.Component {
 
   handleSendMessage() {
     this.props.onMessageSend(this.state.message);
+    this.setState({ message: '' });
   }
 
   render() {
     return (
       <div className="NewMessage">
         <div className="NewMessage__input">
-          <input type="text" placeholder="message" onChange={this.handleMessageTyping} />
+          <input
+            type="text"
+            placeholder="message"
+            onChange={this.handleMessageTyping}
+            value={this.state.message}
+          />
         </div>
         <div className="NewMessage__button">
           <button type="button" onClick={this.handleSendMessage}>Send</button>
