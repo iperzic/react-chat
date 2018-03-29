@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Chat should display all provided messages with a new message 1`] = `
+<div
+  className="Chat"
+>
+  <div
+    className="Chat__messages"
+  >
+    <MessageBubble
+      author="Bugs Bunny"
+      isOwn={true}
+      message="Whats up doc?"
+      timestamp="some timestamp"
+    />
+    <MessageBubble
+      author="Foo"
+      isOwn={false}
+      message="Bar"
+      timestamp="Baz"
+    />
+  </div>
+  <div
+    className="Chat__new-message-bar"
+  >
+    <NewMessage
+      onMessageSend={[Function]}
+    />
+  </div>
+</div>
+`;
