@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NewMessage should show an input for message and a send button 1`] = `
+<div
+  className="NewMessage"
+>
+  <div
+    className="NewMessage__input"
+  >
+    <input
+      onChange={[Function]}
+      placeholder="message"
+      type="text"
+      value=""
+    />
+  </div>
+  <div
+    className="NewMessage__button"
+  >
+    <button
+      onClick={[Function]}
+      type="button"
+    >
+      Send
+    </button>
+  </div>
+</div>
+`;
