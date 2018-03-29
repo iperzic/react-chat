@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MessageBubble when the message is not own should display that the message as not own 1`] = `
+<div
+  className="MessageBubble"
+>
+  <div
+    className="MessageBubble__author"
+  >
+    Bugs Bunny
+  </div>
+  <div
+    className="MessageBubble__message"
+  >
+    Whats up doc?
+  </div>
+  <div
+    className="MessageBubble__timestamp"
+  >
+    12.12.2012
+  </div>
+</div>
+`;
+
+exports[`MessageBubble when the message is own should display that the message as own 1`] = `
+<div
+  className="MessageBubble--own"
+>
+  <div
+    className="MessageBubble__message"
+  >
+    Whats up doc?
+  </div>
+  <div
+    className="MessageBubble__timestamp--own"
+  >
+    12.12.2012
+  </div>
+</div>
+`;
