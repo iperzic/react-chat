@@ -1,30 +1,31 @@
 import { all, fork, call, put, takeEvery } from 'redux-saga/effects';
 import * as api from '../services/message';
 import * as msgTypes from '../actions/messages.const';
+import * as msgActions from '../actions/messages';
 
-function* getMessages() {
+export function* getMessages() {
   try {
     const data = yield call(api.getMessages);
-    yield put({ type: msgTypes.GET_MESSAGES_SUCCESS, payload: { data } });
+    yield put(msgActions.getMessagesSuccess(data));
   } catch (e) {
-    yield put({ type: msgTypes.GET_MESSAGES_FAILURE, message: e.message });
+    yield put(msgActions.getMessagesFailure(e));
   }
 }
 
-function* getMessagesSaga() {
+export function* getMessagesSaga() {
   yield takeEvery([msgTypes.GET_MESSAGES, msgTypes.SEND_MESSAGE_SUCCESS], getMessages);
 }
 
-function* sendMessage(action) {
+export function* sendMessage(action) {
   try {
-    const messages = yield call(api.sendMessage, action.payload.message);
-    yield put({ type: msgTypes.SEND_MESSAGE_SUCCESS, payload: { messages } });
+    yield call(api.sendMessage, action.payload.message);
+    yield put(msgActions.sendMessageSuccess());
   } catch (e) {
-    yield put({ type: msgTypes.SEND_MESSAGE_FAILURE, message: e.message });
+    yield put(msgActions.sendMessageFailure(e));
   }
 }
 
-function* sendMessageSaga() {
+export function* sendMessageSaga() {
   yield takeEvery(msgTypes.SEND_MESSAGE, sendMessage);
 }
 
