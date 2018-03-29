@@ -1,10 +1,8 @@
 import * as msgTypes from '../actions/messages.const';
 
-const defaultState = {
-  loading: false,
-  error: '',
-  messages: [],
-};
+import TestStore from '../support/store';
+
+const defaultState = TestStore.createMessagesStore();
 
 /* eslint no-underscore-dangle: 0 */
 export default (state = defaultState, action) => {
