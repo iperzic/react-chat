@@ -5,6 +5,7 @@ import './Chat.css';
 
 import MessageBubble from './MessageBubble';
 import NewMessage from './NewMessage';
+import Loading from './Loading';
 
 class Chat extends React.Component {
   componentDidMount() {
@@ -14,6 +15,7 @@ class Chat extends React.Component {
   render() {
     return (
       <div className="Chat">
+        {this.props.isLoading && <Loading />}
         <div className="Chat__messages">
           {this.props.messages.map(m =>
             (<MessageBubble
@@ -42,6 +44,7 @@ Chat.propTypes = {
   })).isRequired,
   onNewMessage: PropTypes.func.isRequired,
   onChatLoad: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool.isRequired,
 };
 
 export default Chat;

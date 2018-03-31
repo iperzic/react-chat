@@ -8,10 +8,12 @@ describe('Chat', () => {
   let messageSendSpy;
   let chatLoadSpy;
   let messages;
+  let isLoading;
 
   beforeEach(() => {
     messageSendSpy = jest.fn();
     chatLoadSpy = jest.fn();
+    isLoading = false;
     messages = [{
       id: 'abc', author: 'Bugs Bunny', message: 'Whats up doc?', timestamp: 'some timestamp', isOwn: true,
     }, {
@@ -21,6 +23,7 @@ describe('Chat', () => {
       messages={messages}
       onNewMessage={messageSendSpy}
       onChatLoad={chatLoadSpy}
+      isLoading={isLoading}
     />);
   });
 
@@ -30,5 +33,12 @@ describe('Chat', () => {
 
   it('should call the onChatLoad prop when a component is mounted', () => {
     expect(chatLoadSpy).toHaveBeenCalled();
+  });
+
+  describe('when page is loading', () => {
+    it('should display the loading screen', () => {
+      component.setProps({ isLoading: true });
+      expect(component.getElement()).toMatchSnapshot();
+    });
   });
 });
