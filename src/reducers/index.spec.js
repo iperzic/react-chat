@@ -26,7 +26,7 @@ describe('messages reducer', () => {
 
   it('should handle GET_MESSAGES_SUCCESS', () => {
     const response = [{
-      id: 'abc', author: 'Bugs Bunny', message: 'Whats up doc?', timestamp: 'Thu Mar 15 2018', isOwn: false,
+      id: 'abc', author: 'Bugs Bunny', message: 'Whats up doc?', timestamp: '15 Mar 2018, 07:45', isOwn: false,
     }];
     const action = {
       type: msgTypes.GET_MESSAGES_SUCCESS,

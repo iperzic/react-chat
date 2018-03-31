@@ -4,6 +4,10 @@ import TestStore from '../support/store';
 
 const defaultState = TestStore.createMessagesStore();
 
+const dateOptions = {
+  day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit',
+};
+
 /* eslint no-underscore-dangle: 0 */
 export default (state = defaultState, action) => {
   switch (action.type) {
@@ -21,7 +25,7 @@ export default (state = defaultState, action) => {
           id: msg._id,
           author: msg.author,
           message: msg.message,
-          timestamp: new Date(msg.timestamp).toDateString(),
+          timestamp: new Date(msg.timestamp).toLocaleString('en-GB', dateOptions),
           isOwn: msg.author === 'Igor Perzic',
         })),
       });
