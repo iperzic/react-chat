@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MessageList when there are messages provided should display messages 1`] = `
+<div
+  className="MessageList"
+>
+  <MessageBubble
+    author="Bugs Bunny"
+    isOwn={true}
+    message="Whats up doc?"
+    timestamp="some timestamp"
+  />
+  <MessageBubble
+    author="Foo"
+    isOwn={false}
+    message="Bar"
+    timestamp="Baz"
+  />
+</div>
+`;
+
+exports[`MessageList when there are no messages should not display any messages 1`] = `
+<div
+  className="MessageList"
+>
+  
+</div>
+`;
