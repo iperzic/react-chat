@@ -1,0 +1,40 @@
+.MessageBubble, .MessageBubble--own {
+    overflow: hidden;
+    display: flex;
+    padding: 8px 24px;
+    border-radius: 5px;
+}
+
+.MessageBubble--own {
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.MessageBubble__container, .MessageBubble__container--own {
+    box-sizing: border-box;
+    max-width: 420px;
+    background: white;
+    border: 1px solid #d4dade;
+    border-radius: 5px;
+    order: 1;
+    padding: 16px;
+}
+
+.MessageBubble__container--own {
+    background: #fcf6c5;
+}
+
+.MessageBubble__author, .MessageBubble__timestamp, .MessageBubble__timestamp--own {
+    color: #b3bcc3;
+}
+
+.MessageBubble__timestamp--own {
+    margin-right: -8px;
+    text-align: right;
+}
+
+@media only screen and (max-width : 460px) {
+    .MessageBubble__container, .MessageBubble__container--own {
+        max-width: 240px;
+    }
+}

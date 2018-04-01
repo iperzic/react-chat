@@ -7,16 +7,18 @@ const MessageBubble = ({
   author, message, timestamp, isOwn,
 }) => (
   <div className={isOwn ? 'MessageBubble--own' : 'MessageBubble'}>
-    {!isOwn &&
-    <div className="MessageBubble__author">
-      {author}
-    </div>
-    }
-    <div className="MessageBubble__message">
-      {message}
-    </div>
-    <div className={isOwn ? 'MessageBubble__timestamp--own' : 'MessageBubble__timestamp'}>
-      {timestamp}
+    <div className={isOwn ? 'MessageBubble__container--own' : 'MessageBubble__container'}>
+      {!isOwn &&
+      <div className="MessageBubble__author">
+        {author}
+      </div>
+      }
+      <div className="MessageBubble__message">
+        {message}
+      </div>
+      <div className={isOwn ? 'MessageBubble__timestamp--own' : 'MessageBubble__timestamp'}>
+        {timestamp}
+      </div>
     </div>
   </div>
 );

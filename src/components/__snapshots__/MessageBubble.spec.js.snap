@@ -5,19 +5,23 @@ exports[`MessageBubble when the message is not own should display that the messa
   className="MessageBubble"
 >
   <div
-    className="MessageBubble__author"
+    className="MessageBubble__container"
   >
-    Bugs Bunny
-  </div>
-  <div
-    className="MessageBubble__message"
-  >
-    Whats up doc?
-  </div>
-  <div
-    className="MessageBubble__timestamp"
-  >
-    12.12.2012
+    <div
+      className="MessageBubble__author"
+    >
+      Bugs Bunny
+    </div>
+    <div
+      className="MessageBubble__message"
+    >
+      Whats up doc?
+    </div>
+    <div
+      className="MessageBubble__timestamp"
+    >
+      12.12.2012
+    </div>
   </div>
 </div>
 `;
@@ -27,14 +31,18 @@ exports[`MessageBubble when the message is own should display that the message a
   className="MessageBubble--own"
 >
   <div
-    className="MessageBubble__message"
+    className="MessageBubble__container--own"
   >
-    Whats up doc?
-  </div>
-  <div
-    className="MessageBubble__timestamp--own"
-  >
-    12.12.2012
+    <div
+      className="MessageBubble__message"
+    >
+      Whats up doc?
+    </div>
+    <div
+      className="MessageBubble__timestamp--own"
+    >
+      12.12.2012
+    </div>
   </div>
 </div>
 `;
