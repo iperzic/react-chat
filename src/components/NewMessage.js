@@ -21,7 +21,8 @@ class NewMessage extends React.Component {
     this.setState({ message });
   }
 
-  handleSendMessage() {
+  handleSendMessage(event) {
+    event.preventDefault();
     this.props.onMessageSend(this.state.message);
     this.setState({ message: '' });
   }
@@ -29,9 +30,10 @@ class NewMessage extends React.Component {
   render() {
     return (
       <div className="NewMessage">
-        <div className="NewMessage__container">
+        <form className="NewMessage__container" onSubmit={this.handleSendMessage}>
           <input
             className="NewMessage__input"
+            required
             type="text"
             placeholder=" Message"
             onChange={this.handleMessageTyping}
@@ -40,13 +42,11 @@ class NewMessage extends React.Component {
           />
           <button
             className="NewMessage__button"
-            type="button"
-            onClick={this.handleSendMessage}
-            disabled={!this.state.message}
+            type="submit"
           >
             Send
           </button>
-        </div>
+        </form>
       </div>);
   }
 }

@@ -4,26 +4,26 @@ exports[`NewMessage when there is no text in the input should show an input for 
 <div
   className="NewMessage"
 >
-  <div
+  <form
     className="NewMessage__container"
+    onSubmit={[Function]}
   >
     <input
       className="NewMessage__input"
       maxLength="256"
       onChange={[Function]}
       placeholder=" Message"
+      required={true}
       type="text"
       value=""
     />
     <button
       className="NewMessage__button"
-      disabled={true}
-      onClick={[Function]}
-      type="button"
+      type="submit"
     >
       Send
     </button>
-  </div>
+  </form>
 </div>
 `;
 
@@ -31,25 +31,25 @@ exports[`NewMessage when there is text in the input should show an input for mes
 <div
   className="NewMessage"
 >
-  <div
+  <form
     className="NewMessage__container"
+    onSubmit={[Function]}
   >
     <input
       className="NewMessage__input"
       maxLength="256"
       onChange={[Function]}
       placeholder=" Message"
+      required={true}
       type="text"
       value="Whats up doc?"
     />
     <button
       className="NewMessage__button"
-      disabled={false}
-      onClick={[Function]}
-      type="button"
+      type="submit"
     >
       Send
     </button>
-  </div>
+  </form>
 </div>
 `;

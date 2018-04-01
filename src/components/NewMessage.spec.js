@@ -16,6 +16,14 @@ describe('NewMessage', () => {
     it('should show an input for message and a disabled send button', () => {
       expect(component.getElement()).toMatchSnapshot();
     });
+
+    it('should not call the onMessageSend prop', () => {
+      const sendButton = component.find('button');
+
+      sendButton.simulate('click');
+
+      expect(messageSendSpy).not.toHaveBeenCalled();
+    });
   });
 
   describe('when there is text in the input', () => {
@@ -30,15 +38,18 @@ describe('NewMessage', () => {
     });
 
     it('should call the onMessageSend prop with the message', () => {
-      const messageInput = component.find('input');
-      const sendButton = component.find('button');
+      const messageInput = component.find('.NewMessage__input');
+      const form = component.find('.NewMessage__container');
 
       messageInput.simulate('change', {
         currentTarget: {
           value: message,
         },
       });
-      sendButton.simulate('click');
+      form.simulate('submit', {
+        preventDefault: () => {
+        },
+      });
 
       expect(messageSendSpy).toHaveBeenCalledWith(message);
     });
