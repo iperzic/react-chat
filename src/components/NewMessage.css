@@ -1,0 +1,42 @@
+.NewMessage {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: #3798d4;
+}
+
+.NewMessage__container{
+    height: 100%;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 8px;
+    display: flex;
+    box-sizing: border-box;
+}
+
+.NewMessage__input, .NewMessage__button {
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+.NewMessage__input{
+    margin-right: 8px;
+    font-size: 20px;
+    border: 1px solid #2e77a4;
+    padding-left: 8px;
+    flex: 8;
+}
+
+.NewMessage__button {
+    flex: 1;
+    background: #ff876d;
+    color: white;
+    font-size: 15px;
+}
+
+.NewMessage__button:disabled {
+    background: darkgray;
+    color: lightgrey;
+}

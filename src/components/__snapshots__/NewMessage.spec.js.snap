@@ -1,23 +1,50 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`NewMessage should show an input for message and a send button 1`] = `
+exports[`NewMessage when there is no text in the input should show an input for message and a disabled send button 1`] = `
 <div
   className="NewMessage"
 >
   <div
-    className="NewMessage__input"
+    className="NewMessage__container"
   >
     <input
+      className="NewMessage__input"
+      maxLength="256"
       onChange={[Function]}
-      placeholder="message"
+      placeholder=" Message"
       type="text"
       value=""
     />
-  </div>
-  <div
-    className="NewMessage__button"
-  >
     <button
+      className="NewMessage__button"
+      disabled={true}
+      onClick={[Function]}
+      type="button"
+    >
+      Send
+    </button>
+  </div>
+</div>
+`;
+
+exports[`NewMessage when there is text in the input should show an input for message and a send button 1`] = `
+<div
+  className="NewMessage"
+>
+  <div
+    className="NewMessage__container"
+  >
+    <input
+      className="NewMessage__input"
+      maxLength="256"
+      onChange={[Function]}
+      placeholder=" Message"
+      type="text"
+      value="Whats up doc?"
+    />
+    <button
+      className="NewMessage__button"
+      disabled={false}
       onClick={[Function]}
       type="button"
     >

@@ -29,16 +29,23 @@ class NewMessage extends React.Component {
   render() {
     return (
       <div className="NewMessage">
-        <div className="NewMessage__input">
+        <div className="NewMessage__container">
           <input
+            className="NewMessage__input"
             type="text"
-            placeholder="message"
+            placeholder=" Message"
             onChange={this.handleMessageTyping}
             value={this.state.message}
+            maxLength="256"
           />
-        </div>
-        <div className="NewMessage__button">
-          <button type="button" onClick={this.handleSendMessage}>Send</button>
+          <button
+            className="NewMessage__button"
+            type="button"
+            onClick={this.handleSendMessage}
+            disabled={!this.state.message}
+          >
+            Send
+          </button>
         </div>
       </div>);
   }
