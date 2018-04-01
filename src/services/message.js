@@ -3,7 +3,11 @@ import { endpoint, token, author, limit, since } from '../config';
 export function getMessages() {
   const request = `${endpoint}/?token=${token}${limit ? `&limit=${limit}` : ''}${since ? `&since=${since}` : ''}`;
   return fetch(request)
-    .then(response => response.json());
+    .then((response) => {
+      if (response.ok) return response.json();
+
+      throw new Error('An error has occurred while fetching messages');
+    });
 }
 
 export function sendMessage(message) {
@@ -15,5 +19,9 @@ export function sendMessage(message) {
     },
     body: JSON.stringify({ message, author }),
   })
-    .then(response => response.json());
+    .then((response) => {
+      if (response.ok) return response.json();
+
+      throw new Error('An error has occurred while sending new message');
+    });
 }

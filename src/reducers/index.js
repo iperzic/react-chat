@@ -35,7 +35,7 @@ export default (state = defaultState, action) => {
       return ({
         ...state,
         loading: false,
-        error: action.payload.error,
+        error: action.message,
       });
     case msgTypes.SEND_MESSAGE:
       return ({
@@ -52,7 +52,7 @@ export default (state = defaultState, action) => {
       return ({
         ...state,
         loading: false,
-        error: action.payload.error,
+        error: action.message,
       });
     default:
       return state;
