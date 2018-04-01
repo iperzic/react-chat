@@ -1,9 +1,8 @@
-const endpoint = 'https://chatty.kubernetes.doodle-test.com/api/chatty/v1.0';
-const token = 'M3K4rhsBr6nm';
-const author = 'Igor Perzic';
+import { endpoint, token, author, limit, since } from '../config';
 
 export function getMessages() {
-  return fetch(`${endpoint}/?since=1521096352339&limit=10&token=${token}`)
+  const request = `${endpoint}/?token=${token}${limit ? `&limit=${limit}` : ''}${since ? `&since=${since}` : ''}`;
+  return fetch(request)
     .then(response => response.json());
 }
 

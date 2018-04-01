@@ -2,6 +2,8 @@ import * as msgTypes from '../actions/messages.const';
 
 import TestStore from '../support/store';
 
+import { author } from '../config';
+
 const defaultState = TestStore.createMessagesStore();
 
 const dateOptions = {
@@ -26,7 +28,7 @@ export default (state = defaultState, action) => {
           author: msg.author,
           message: msg.message,
           timestamp: new Date(msg.timestamp).toLocaleString('en-GB', dateOptions),
-          isOwn: msg.author === 'Igor Perzic',
+          isOwn: msg.author === author,
         })),
       });
     case msgTypes.GET_MESSAGES_FAILURE:
