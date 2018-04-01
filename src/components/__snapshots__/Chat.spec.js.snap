@@ -1,62 +1,53 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Chat should display all provided messages with a new message 1`] = `
-<div
-  className="Chat"
->
-  <div
-    className="Chat__messages"
-  >
-    <MessageBubble
-      author="Bugs Bunny"
-      isOwn={true}
-      message="Whats up doc?"
-      timestamp="some timestamp"
-    />
-    <MessageBubble
-      author="Foo"
-      isOwn={false}
-      message="Bar"
-      timestamp="Baz"
-    />
-  </div>
-  <div
-    className="Chat__new-message-bar"
-  >
-    <NewMessage
-      onMessageSend={[Function]}
-    />
-  </div>
-</div>
+<Chat
+  isLoading={false}
+  messages={
+    Array [
+      Object {
+        "author": "Bugs Bunny",
+        "id": "abc",
+        "isOwn": true,
+        "message": "Whats up doc?",
+        "timestamp": "some timestamp",
+      },
+      Object {
+        "author": "Foo",
+        "id": "abcd",
+        "isOwn": false,
+        "message": "Bar",
+        "timestamp": "Baz",
+      },
+    ]
+  }
+  onChatLoad={[Function]}
+  onNewMessage={[Function]}
+/>
 `;
 
 exports[`Chat when page is loading should display the loading screen 1`] = `
-<div
-  className="Chat"
->
-  <Loading />
-  <div
-    className="Chat__messages"
-  >
-    <MessageBubble
-      author="Bugs Bunny"
-      isOwn={true}
-      message="Whats up doc?"
-      timestamp="some timestamp"
-    />
-    <MessageBubble
-      author="Foo"
-      isOwn={false}
-      message="Bar"
-      timestamp="Baz"
-    />
-  </div>
-  <div
-    className="Chat__new-message-bar"
-  >
-    <NewMessage
-      onMessageSend={[Function]}
-    />
-  </div>
-</div>
+<Chat
+  isLoading={true}
+  messages={
+    Array [
+      Object {
+        "author": "Bugs Bunny",
+        "id": "abc",
+        "isOwn": true,
+        "message": "Whats up doc?",
+        "timestamp": "some timestamp",
+      },
+      Object {
+        "author": "Foo",
+        "id": "abcd",
+        "isOwn": false,
+        "message": "Bar",
+        "timestamp": "Baz",
+      },
+    ]
+  }
+  onChatLoad={[Function]}
+  onNewMessage={[Function]}
+/>
 `;

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import './Chat.css';
 
-import MessageBubble from './MessageBubble';
+import MessageList from './MessageList';
 import NewMessage from './NewMessage';
 import Loading from './Loading';
 
@@ -12,24 +12,26 @@ class Chat extends React.Component {
     this.props.onChatLoad();
   }
 
+  componentDidUpdate() {
+    this.scrollToBottom();
+  }
+
+  scrollToBottom() {
+    this.lastMessage.scrollIntoView({ behavior: 'smooth' });
+  }
+
   render() {
     return (
       <div className="Chat">
         {this.props.isLoading && <Loading />}
-        <div className="Chat__messages">
-          {this.props.messages.map(m =>
-            (<MessageBubble
-              key={m.id}
-              author={m.author}
-              message={m.message}
-              timestamp={m.timestamp}
-              isOwn={m.isOwn}
-            />))
-          }
-        </div>
-        <div className="Chat__new-message-bar">
-          <NewMessage onMessageSend={this.props.onNewMessage} />
-        </div>
+        <MessageList messages={this.props.messages} />
+        <div
+          className="Chat__last-message-handle"
+          ref={(el) => {
+            this.lastMessage = el;
+          }}
+        />
+        <NewMessage onMessageSend={this.props.onNewMessage} />
       </div>
     );
   }

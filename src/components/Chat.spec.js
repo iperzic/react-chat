@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 
 import Chat from './Chat';
 
@@ -14,12 +14,14 @@ describe('Chat', () => {
     messageSendSpy = jest.fn();
     chatLoadSpy = jest.fn();
     isLoading = false;
+    window.HTMLElement.prototype.scrollIntoView = () => {
+    };
     messages = [{
       id: 'abc', author: 'Bugs Bunny', message: 'Whats up doc?', timestamp: 'some timestamp', isOwn: true,
     }, {
       id: 'abcd', author: 'Foo', message: 'Bar', timestamp: 'Baz', isOwn: false,
     }];
-    component = shallow(<Chat
+    component = mount(<Chat
       messages={messages}
       onNewMessage={messageSendSpy}
       onChatLoad={chatLoadSpy}
