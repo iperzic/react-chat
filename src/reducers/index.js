@@ -10,6 +10,14 @@ const dateOptions = {
   day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit',
 };
 
+const decodeHtmlEntities = (string) => {
+  const sandbox = document.implementation.createHTMLDocument('Sandbox');
+  sandbox.body.innerHTML = string;
+  return sandbox.body.textContent;
+};
+
+const doubleDecodeHtmlEntities = string => decodeHtmlEntities(decodeHtmlEntities(string));
+
 /* eslint no-underscore-dangle: 0 */
 export default (state = defaultState, action) => {
   switch (action.type) {
@@ -26,7 +34,8 @@ export default (state = defaultState, action) => {
         messages: action.payload.data.map(msg => ({
           id: msg._id,
           author: msg.author,
-          message: msg.message,
+          // Messages are being encoded two times on the server
+          message: doubleDecodeHtmlEntities(msg.message),
           timestamp: new Date(msg.timestamp).toLocaleString('en-GB', dateOptions),
           isOwn: msg.author === author,
         })),
