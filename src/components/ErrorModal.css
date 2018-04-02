@@ -1,4 +1,4 @@
-.Modal {
+.ErrorModal {
     position: fixed;
     z-index: 1;
     padding-top: 100px;
@@ -11,7 +11,7 @@
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-.modal-content {
+.ErrorModal__content {
     position: relative;
     background-color: #fefefe;
     margin: auto;

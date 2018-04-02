@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import './ErrorModal.css';
 
 const ErrorModal = ({ message }) => (
-  <div className="Modal">
-    <div className="modal-content">
+  <div className="ErrorModal">
+    <div className="ErrorModal__content">
       {message}
     </div>
   </div>
