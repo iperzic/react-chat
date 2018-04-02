@@ -2,6 +2,7 @@
 
 exports[`Chat should display all provided messages with a new message 1`] = `
 <Chat
+  error=""
   isLoading={false}
   messages={
     Array [
@@ -28,7 +29,35 @@ exports[`Chat should display all provided messages with a new message 1`] = `
 
 exports[`Chat when page is loading should display the loading screen 1`] = `
 <Chat
+  error=""
   isLoading={true}
+  messages={
+    Array [
+      Object {
+        "author": "Bugs Bunny",
+        "id": "abc",
+        "isOwn": true,
+        "message": "Whats up doc?",
+        "timestamp": "some timestamp",
+      },
+      Object {
+        "author": "Foo",
+        "id": "abcd",
+        "isOwn": false,
+        "message": "Bar",
+        "timestamp": "Baz",
+      },
+    ]
+  }
+  onChatLoad={[Function]}
+  onNewMessage={[Function]}
+/>
+`;
+
+exports[`Chat when there is errors should display the error modal 1`] = `
+<Chat
+  error="some error"
+  isLoading={false}
   messages={
     Array [
       Object {

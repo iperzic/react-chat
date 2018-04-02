@@ -6,6 +6,7 @@ import './Chat.css';
 import MessageList from './MessageList';
 import NewMessage from './NewMessage';
 import Loading from './Loading';
+import ErrorModal from './ErrorModal';
 
 class Chat extends React.Component {
   componentDidMount() {
@@ -24,6 +25,7 @@ class Chat extends React.Component {
     return (
       <div className="Chat">
         {this.props.isLoading && <Loading />}
+        {this.props.error && <ErrorModal message={this.props.error} />}
         <MessageList messages={this.props.messages} />
         <div
           className="Chat__last-message-handle"
@@ -47,6 +49,7 @@ Chat.propTypes = {
   onNewMessage: PropTypes.func.isRequired,
   onChatLoad: PropTypes.func.isRequired,
   isLoading: PropTypes.bool.isRequired,
+  error: PropTypes.string.isRequired,
 };
 
 export default Chat;

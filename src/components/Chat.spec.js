@@ -9,11 +9,13 @@ describe('Chat', () => {
   let chatLoadSpy;
   let messages;
   let isLoading;
+  let error;
 
   beforeEach(() => {
     messageSendSpy = jest.fn();
     chatLoadSpy = jest.fn();
     isLoading = false;
+    error = '';
     window.HTMLElement.prototype.scrollIntoView = () => {
     };
     messages = [{
@@ -26,6 +28,7 @@ describe('Chat', () => {
       onNewMessage={messageSendSpy}
       onChatLoad={chatLoadSpy}
       isLoading={isLoading}
+      error={error}
     />);
   });
 
@@ -40,6 +43,14 @@ describe('Chat', () => {
   describe('when page is loading', () => {
     it('should display the loading screen', () => {
       component.setProps({ isLoading: true });
+      expect(component.getElement()).toMatchSnapshot();
+    });
+  });
+
+  describe('when there is errors', () => {
+    it('should display the error modal', () => {
+      error = 'some error';
+      component.setProps({ error });
       expect(component.getElement()).toMatchSnapshot();
     });
   });

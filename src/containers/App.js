@@ -7,6 +7,7 @@ import Chat from '../components/Chat';
 const mapStateToProps = state => ({
   messages: state.messages,
   isLoading: state.loading,
+  error: state.error,
 });
 
 const mapDispatchToProps = dispatch => ({

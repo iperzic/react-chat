@@ -4,6 +4,7 @@ exports[`App when the there are messages should show empty input and message lis
 <div
   className="Chat"
 >
+  
   <MessageList
     messages={
       Array [
@@ -30,6 +31,7 @@ exports[`App when the there are no messages should show empty input and empty me
 <div
   className="Chat"
 >
+  
   <MessageList
     messages={Array []}
   />
