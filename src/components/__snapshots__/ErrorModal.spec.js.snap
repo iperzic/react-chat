@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ErrorModal should display the error modal with provided text 1`] = `
+<div
+  className="Modal"
+>
+  <div
+    className="modal-content"
+  >
+    An error has occurred
+  </div>
+</div>
+`;
